@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VALERIA SHOP — Haute Beauté & Cosmétiques</title>
+  <!-- Fuentes de Lujo (Playfair Display + Montserrat) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --negro-chanel: #111111;
+      --blanco-puro: #ffffff;
+      --gris-suave: #f9f8f8;
+      --rosa-chanel: #f7ecef;
+      --oro-rosa: #c98a72;
+      --texto-secundario: #555555;
+      --borde-fino: #e5e0e1;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--blanco-puro);
+      color: var(--negro-chanel);
+      line-height: 1.6;
+    }
+
+    /* Top Banner minimalista */
+    .top-announcement {
+      background-color: var(--negro-chanel);
+      color: var(--blanco-puro);
+      text-align: center;
+      padding: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    /* Encabezado */
+    header {
+      background: var(--blanco-puro);
+      border-bottom: 1px solid var(--borde-fino);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .brand-header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--negro-chanel);
+      font-weight: 500;
+    }
+
+    .brand-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--oro-rosa);
+      margin-top: 0.2rem;
+    }
+
+    /* Menú de Categorías */
+    nav.main-nav {
+      margin-top: 1.5rem;
+      padding-bottom: 0.8rem;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      flex-wrap: wrap;
+      padding: 0 1rem;
+    }
+
+    .nav-link {
+      background: none;
+      border: none;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--negro-chanel);
+      cursor: pointer;
+      padding: 0.4rem 0;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--oro-rosa);
+      border-bottom: 1px solid var(--oro-rosa);
+    }
+
+    /* Hero Editorial estilo Chanel */
+    .editorial-hero {
+      background-color: var(--rosa-chanel);
+      padding: 6rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--borde-fino);
+    }
+
+    .editorial-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--negro-chanel);
+      margin-bottom: 1rem;
+    }
+
+    .editorial-hero p {
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--texto-secundario);
+      max-width: 650px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* Grilla de Productos estilo Chanel */
+    .container {
+      max-width: 1300px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 3.5rem;
+      font-weight: 400;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 3rem 2rem;
+    }
+
+    .product-card {
+      background: var(--blanco-puro);
+      border: 1px solid var(--borde-fino);
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .product-card:hover {
+      border-color: var(--negro-chanel);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    }
+
+    .product-category-tag {
+      font-size: 0.65rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--oro-rosa);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      min-height: 3.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-discover {
+      background: transparent;
+      color: var(--negro-chanel);
+      border: 1px solid var(--negro-chanel);
+      padding: 0.9rem 1.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .btn-discover:hover {
+      background: var(--negro-chanel);
+      color: var(--blanco-puro);
+    }
+
+    /* Modal / Panel Ficha de Producto Chanel */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17, 17, 17, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .modal-overlay.active {
+      display: flex;
+    }
+
+    .modal-card {
+      background: var(--blanco-puro);
+      max-width: 650px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 3rem 2.5rem;
+      position: relative;
+      border: 1px solid var(--negro-chanel);
+      text-align: left;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--negro-chanel);
+      line-height: 1;
+    }
+
+    .modal-header-tag {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--oro-rosa);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .modal-product-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      letter-spacing: 1.5px;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--borde-fino);
+      padding-bottom: 1rem;
+    }
+
+    .detail-block {
+      margin-bottom: 1.5rem;
+    }
+
+    .detail-block h4 {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--negro-chanel);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .detail-block p {
+      font-size: 0.9rem;
+      color: var(--texto-secundario);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .btn-order-ws {
+      display: block;
+      text-align: center;
+      background: var(--negro-chanel);
+      color: var(--blanco-puro);
+      text-decoration: none;
+      padding: 1rem 2rem;
+      font-size: 0.75rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .btn-order-ws:hover {
+      background: var(--oro-rosa);
+    }
+
+    /* Sección Quiénes Somos */
+    .about-editorial {
+      background: var(--gris-suave);
+      padding: 5rem 2rem;
+      border-top: 1px solid var(--borde-fino);
+      border-bottom: 1px solid var(--borde-fino);
+      margin: 6rem 0 3rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-box {
+      border-left: 2px solid var(--negro-chanel);
+      padding-left: 1.5rem;
+    }
+
+    .about-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .about-box p, .about-box ul {
+      font-size: 0.9rem;
+      color: var(--texto-secundario);
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .about-box ul {
+      list-style: none;
+    }
+
+    .about-box ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-box ul li strong {
+      color: var(--negro-chanel);
+      font-weight: 500;
+    }
+
+    /* Footer estilo Haute Couture */
+    footer {
+      background: var(--negro-chanel);
+      color: var(--blanco-puro);
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    footer h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: 4px;
+      margin-bottom: 0.5rem;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-announcement">VALERIA SHOP — EL SALVADOR</div>
+
+  <!-- Encabezado Chanel -->
+  <header>
+    <div class="brand-header">
+      <div class="brand-title">Valeria Shop</div>
+      <div class="brand-tagline">Haute Beauté & Cosmétiques</div>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="main-nav">
+      <ul class="nav-container">
+        <li><button class="nav-link active" onclick="filtrar('todos', this)">Todos</button></li>
+        <li><button class="nav-link" onclick="filtrar('labios', this)">Labios</button></li>
+        <li><button class="nav-link" onclick="filtrar('rostro', this)">Rostro</button></li>
+        <li><button class="nav-link" onclick="filtrar('ojos', this)">Ojos</button></li>
+        <li><button class="nav-link" onclick="filtrar('polvos', this)">Polvos e Iluminación</button></li>
+        <li><button class="nav-link" onclick="filtrar('rubores', this)">Rubores</button></li>
+        <li><button class="nav-link" onclick="filtrar('brochas', this)">Brochas</button></li>
+        <li><a href="#quienes-somos" class="nav-link">La Maison</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Editorial Banner -->
+  <section class="editorial-hero">
+    <h1>L'Art du Maquillage</h1>
+    <p>Colección de alta fijación, texturas sedosas y acabados impecables creados para sublimar tu belleza natural.</p>
+  </section>
+
+  <!-- Catálogo Principal -->
+  <main class="container">
+    <h2 class="section-title" id="categoria-titulo">Colección Completa</h2>
+
+    <div class="products-grid" id="grid-productos">
+      <!-- Fichas generadas dinámicamente -->
+    </div>
+
+    <!-- Sección La Maison / Quiénes Somos -->
+    <section class="about-editorial" id="quienes-somos">
+      <h2 class="section-title" style="margin-bottom: 3rem;">La Maison Valeria Shop</h2>
+      
+      <div class="about-grid">
+        <div class="about-box">
+          <h3>Misión</h3>
+          <p>Ofrecer productos de maquillaje de alta calidad a precios accesibles, brindando una atención personalizada excepcional y promoviendo la confianza y sofisticación de cada persona.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Visión</h3>
+          <p>Ser la firma de cosméticos referente en El Salvador, reconocida por su estándar de excelencia, innovación constante y compromiso firme con la satisfacción de nuestras clientas.</p>
+        </div>
+
+        <div class="about-box">
+          <h3>Valores</h3>
+          <ul>
+            <li><strong>Responsabilidad:</strong> Compromiso ético en cada detalle.</li>
+            <li><strong>Honestidad:</strong> Transparencia total en nuestros cosméticos.</li>
+            <li><strong>Innovación:</strong> Fórmulas a la vanguardia de la cosmética mundial.</li>
+            <li><strong>Calidad:</strong> Estándares rigurosos en cada colección.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal Detallado estilo Ficha Técnica Chanel -->
+  <div class="modal-overlay" id="productoModal">
+    <div class="modal-card">
+      <span class="modal-close" onclick="cerrarModal()">&times;</span>
+      <div class="modal-header-tag" id="modalCat">CATEGORÍA</div>
+      <h3 class="modal-product-title" id="modalNombre">Nombre Producto</h3>
+
+      <div class="detail-block">
+        <h4>Descripción Editorial</h4>
+        <p id="modalDesc">Descripción larga del producto.</p>
+      </div>
+
+      <div class="detail-block">
+        <h4>Beneficios Clave</h4>
+        <p id="modalBeneficios">Beneficios principales.</p>
+      </div>
+
+      <div class="detail-block">
+        <h4>Modo de Aplicación</h4>
+        <p id="modalAplicacion">Consejos de uso.</p>
+      </div>
+
+      <div class="detail-block">
+        <h4>Acabado & Sensación</h4>
+        <p id="modalAcabado">Textura y duración.</p>
+      </div>
+
+      <a href="#" id="modalWsLink" target="_blank" class="btn-order-ws">Solicitar por WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Footer Chanel Style -->
+  <footer>
+    <h3>VALERIA SHOP, S.A. DE C.V.</h3>
+    <p>Caluco, Sonsonate — El Salvador</p>
+    <p style="margin-top: 1.5rem; font-size: 0.65rem; opacity: 0.5;">&copy; 2026 Valeria Shop. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Base de Datos Detallada de los 18 Productos -->
+  <script>
+    const productos = [
+      {
+        id: 1,
+        nombre: "Labial Matte Velvet Liquid",
+        cat: "labios",
+        desc: "Un labial líquido de alta pigmentación que viste los labios con un velo mate mate terciopelo de textura ultra ligera y confort prolongado.",
+        beneficios: "Proporciona un color intenso desde la primera pasada sin transferir ni agrietar la piel delicada de los labios.",
+        aplicacion: "Aplicar directamente con el aplicador de precisión comenzando desde el centro del labio superior hacia los extremos.",
+        acabado: "Mate aterciopelado de larga duración (hasta 12 horas de cobertura continua)."
+      },
+      {
+        id: 2,
+        nombre: "Tinta de Labios Cherry Pop",
+        cat: "labios",
+        desc: "Fórmula acuosa infusionada con pigmentos rojos cereza que tiñe los labios de manera natural con un efecto 'efecto mordido' fresco.",
+        beneficios: " Sensación de labios desnudos, hidratación continua y resistencia al agua y bebidas.",
+        aplicacion: "Depositar dos o tres gotas en el centro de los labios y difuminar suavemente con la yema de los dedos.",
+        acabado: "Tono rojizo natural semimate con fijación impecable durante todo el día."
+      },
+      {
+        id: 3,
+        nombre: "Base Matte Poreless 24h",
+        cat: "rostro",
+        desc: "Base de maquillaje fluida perfeccionadora de piel diseñada para matificar el cutis y difuminar la apariencia de los poros visibles.",
+        beneficios: "Controla la producción de oleosidad, unifica el tono facial y resiste la humedad ambiental sin perder frescura.",
+        aplicacion: "Distribuir una pequeña cantidad sobre el rostro usando una brocha densa o esponja húmeda desde el centro hacia afuera.",
+        acabado: "Mate impecable de cobertura media a alta con duración comprobada de 24 horas."
+      },
+      {
+        id: 4,
+        nombre: "BB Cream Hidratante FPS 30",
+        cat: "rostro",
+        desc: "Tratamiento embellecedor multiacción que combina hidratación profunda, un toque de color perfeccionador y protección solar diaria.",
+        beneficios: "Protege contra los rayos UVA/UVB mientras atenúa imperfecciones y devuelve el resplandor natural a la piel fatigada.",
+        aplicacion: "Extender sobre la piel limpia como último paso de la rutina de cuidado facial utilizando las palmas de las manos.",
+        acabado: "Jugoso, luminoso y extremadamente natural, ideal para el uso cotidiano."
+      },
+      {
+        id: 5,
+        nombre: "Primer Minimizador de Poros",
+        cat: "rostro",
+        desc: "Prebase transparente con tecnología alisadora que alisa instantáneamente el relieve cutáneo y suaviza líneas de expresión.",
+        beneficios: "Crea un lienzo seda sobre el rostro que prolonga la fijación del maquillaje hasta por el doble de tiempo.",
+        aplicacion: "Aplicar una pequeña dosis sobre la Zona T (frente, nariz y barbilla) antes de la base de maquillaje.",
+        acabado: "Efecto filtro óptico ultra terso sin obstruir los poros."
+      },
+      {
+        id: 6,
+        nombre: "Paleta de Sombras Nude Pastel",
+        cat: "ojos",
+        desc: "Cuidadosa selección de tonos neutros, rosa empolvado y beige mate y satinados de textura sedosa y fácil difuminado.",
+        beneficios: "Pigmentación profesional enriquecida que permite crear desde looks sobrios de día hasta ahumados elegantes de noche.",
+        aplicacion: "Utilizar los tonos claros como base en todo el párpado y los tonos oscuros en la cuenca para dar profundidad.",
+        acabado: "Combinación armónica de acabados mate aterciopelado y destellos satinados."
+      },
+      {
+        id: 7,
+        nombre: "Glitters Líquidos Euforia",
+        cat: "ojos",
+        desc: "Sombra líquida cargada de micropartículas reflejantes de luz que aportan un brillo multidimensional y sofisticado.",
+        beneficios: "Secado ultra rápido a prueba de caída de partículas sobre la mejilla; no genera sensación pegajosa.",
+        aplicacion: "Aplicar directamente sobre el párpado móvil con su aplicador integrado y difuminar suavemente antes de que seque.",
+        acabado: "Destellos de luz metálica e iridiscente de máximo impacto."
+      },
+      {
+        id: 8,
+        nombre: "Delineador Gel Waterproof Negro",
+        cat: "ojos",
+        desc: "Fórmula en gel créme en tono negro azabache de alta densidad para trazos gráficos precisos e intensos.",
+        beneficios: "Resistencia total al agua, las lágrimas y la fricción. No se corre ni pierde intensidad durante el día.",
+        aplicacion: "Trazar la línea a lo largo de las pestañas superiores utilizando un pincel angular fino de alta precisión.",
+        acabado: "Negro opaco profundo de fijación inamovible."
+      },
+      {
+        id: 9,
+        nombre: "Delineador de Colores Neón",
+        cat: "ojos",
+        desc: "Pigmentos líquidos de tonos vibrantes de edición especial creados para delinear y estilizar la mirada con un toque vanguardista.",
+        beneficios: "Punta de pincel flexible que facilita trazos artísticos finos y definidos con color parejo desde la primera pasada.",
+        aplicacion: "Agitar bien antes de usar y trazar el delineado deseado sobre el ojo limpio.",
+        acabado: "Mate fluorescente de alta visibilidad y secado al instante."
+      },
+      {
+        id: 10,
+        nombre: "Máscara de Pestañas Efecto Lash Lift",
+        cat: "ojos",
+        desc: "Rímel arquitectónico con cepillo curvo diseñado para elevar, curvar y alargar cada pestaña individualmente.",
+        beneficios: "Aporta volumen dramático sin apelmazar ni crear grumos indeseados. Mantiene la curvatura intacta todo el día.",
+        aplicacion: "Aplicar desde la raíz de las pestañas hacia las puntas realizando movimientos en zigzag.",
+        acabado: "Negro panorámico con efecto abanico y elevación profesional."
+      },
+      {
+        id: 11,
+        nombre: "Máscara de Pestañas Transparente",
+        cat: "ojos",
+        desc: "Gel fortalecedor incoloro polivalente formulado para peinar, fijar y cuidar tanto pestañas como cejas.",
+        beneficios: "Mantiene el peinado de las cejas intacto sin dejar residuos blancos ni sensación rígida o dura.",
+        aplicacion: "Peinar las cejas hacia arriba según la forma deseada y aplicar sobre las pestañas para un look natural.",
+        acabado: "Incoloro, limpio y pulcro de aspecto fresco."
+      },
+      {
+        id: 12,
+        nombre: "Polvo Traslúcido Antibrillo",
+        cat: "polvos",
+        desc: "Polvo suelto micro-molido ultrafino que sella la base y el corrector eliminando el exceso de brillo sin aportar peso.",
+        beneficios: "Difumina pequeñas imperfecciones y líneas de expresión gracias a sus esferas de luz difusa.",
+        aplicacion: "Presionar suavemente con una borla de terciopelo o brocha grande sobre la zona T y debajo de los ojos.",
+        acabado: "Mate sedoso invisible que no altera el tono de la base."
+      },
+      {
+        id: 13,
+        nombre: "Polvo Compacto Control de Grasa",
+        cat: "polvos",
+        desc: "Polvo prensado matificante perfecto para retoques rápidos que absorbe la humedad y la grasa facial al instante.",
+        beneficios: "Formato portátil elegante con espejo ideal para llevar en el bolso y mantener el cutis fresco en cualquier momento.",
+        aplicacion: "Aplicar mediante pequeños toques sobre las áreas con brillo brillante durante el transcurso del día.",
+        acabado: "Cobertura aterciopelada uniforme y tez mate."
+      },
+      {
+        id: 14,
+        nombre: "Iluminador Líquido Glow Sun",
+        cat: "polvos",
+        desc: "Gotas de luz concentrada dorada-rosada que capturan los reflejos solares para embellecer los pómulos y clavículas.",
+        beneficios: "Fórmula fluida altamente fusible que puede mezclarse con la base de maquillaje o aplicarse sola.",
+        aplicacion: "Depositar dos gotas sobre los puntos altos del rostro (pómulos, tabique nasal, arco de cupido) y difuminar.",
+        acabado: "Resplandor deslumbrante estilo 'piel de cristal' (Glass Skin)."
+      },
+      {
+        id: 15,
+        nombre: "Rubor Líquido Soft Flush",
+        cat: "rubores",
+        desc: "Rubor fluido de textura ligera que aporta a las mejillas un rubor saludable de aspecto joven y revitalizado.",
+        beneficios: "Se integra con la piel como una segunda capa sin levantar el maquillaje que se encuentra debajo.",
+        aplicacion: "Colocar un pequeño punto en la manzana de la mejilla y difuminar hacia la sien con brocha o dedos.",
+        acabado: "Color fresco, sonrosado y de acabado natural."
+      },
+      {
+        id: 16,
+        nombre: "Rubor en Polvo Durazno Dulce",
+        cat: "rubores",
+        desc: "Polvo de textura sedosa enriquecido con micropigmentos tono durazno cálido para dar calidez al rostro.",
+        beneficios: "Permite modular la intensidad deseada, desde un rubor sutil hasta mejillas más marcadas.",
+        aplicacion: "Sonreír y aplicar sobre las manzanas de las mejillas usando una brocha suave para rubor.",
+        acabado: "Mate suave con un toque de calidez durazno radiante."
+      },
+      {
+        id: 17,
+        nombre: "Set de Brochas Profesionales (x10)",
+        cat: "brochas",
+        desc: "Colección esencial de 10 herramientas de maquillaje confeccionadas con fibras sintéticas ultra suaves de alta precisión.",
+        beneficios: "Permiten difuminar polvos, líquidos y cremas sin absorber producto en exceso y garantizando una aplicación uniforme.",
+        aplicacion: "Incluye brochas específicas para base, polvos, contorno, sombras, cejas y labios.",
+        acabado: "Aplicación de nivel profesional con acabado pulido sin líneas trazadas."
+      },
+      {
+        id: 18,
+        nombre: "Brocha para Rubor Angular",
+        cat: "brochas",
+        desc: "Brocha de corte diagonal diseñado ergonómicamente para adaptarse al contorno anatómico de los pómulos.",
+        beneficios: "Facilita la aplicación precisa del rubor y el bronceador esculpiendo las facciones con sutileza.",
+        aplicacion: "Cargar una pequeña cantidad de producto y deslizar siguiendo el ángulo del hueso del pómulo.",
+        acabado: "Difuminado perfecto e impecable."
+      }
+    ];
+
+    function cargarProductos(lista) {
+      const grid = document.getElementById('grid-productos');
+      grid.innerHTML = '';
+
+      lista.forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <div>
+            <div class="product-category-tag">${p.cat.toUpperCase()}</div>
+            <h3 class="product-name">${p.nombre}</h3>
+          </div>
+          <button class="btn-discover" onclick="abrirModal(${p.id})">DESCUBRIR</button>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filtrar(categoria, elemento) {
+      document.querySelectorAll('.nav-link').forEach(btn => btn.classList.remove('active'));
+      if(elemento) elemento.classList.add('active');
+
+      const titulo = document.getElementById('categoria-titulo');
+      titulo.innerText = categoria === 'todos' ? 'Colección Completa' : 'Categoría — ' + categoria.toUpperCase();
+
+      if (categoria === 'todos') {
+        cargarProductos(productos);
+      } else {
+        const filtrados = productos.filter(p => p.cat === categoria);
+        cargarProductos(filtrados);
+      }
+    }
+
+    function abrirModal(id) {
+      const p = productos.find(prod => prod.id === id);
+      if(!p) return;
+
+      document.getElementById('modalCat').innerText = p.cat.toUpperCase();
+      document.getElementById('modalNombre').innerText = p.nombre;
+      document.getElementById('modalDesc').innerText = p.desc;
+      document.getElementById('modalBeneficios').innerText = p.beneficios;
+      document.getElementById('modalAplicacion').innerText = p.aplicacion;
+      document.getElementById('modalAcabado').innerText = p.acabado;
+
+      const mensaje = encodeURIComponent(`¡Hola Valeria Shop! Quisiera información y pedido del producto: ${p.nombre}`);
+      document.getElementById('modalWsLink').href = `https://wa.me/?text=${mensaje}`;
+
+      document.getElementById('productoModal').classList.add('active');
+    }
+
+    function cerrarModal() {
+      document.getElementById('productoModal').classList.remove('active');
+    }
+
+    // Carga inicial
+    cargarProductos(productos);
+  </script>
+</body>
+</html>
